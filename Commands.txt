@@ -1,0 +1,64 @@
+Bancos do Curso de Comunicação Microserviços
+------------------------------------------------------------------------
+
+
+Postgres
+--------------------------------------------------------------------------
+docker run --name auth-db -p 5432:5432 -e POSTGRES_DB=auth-db -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=123456 postgres:11
+docker run --name product-db -p 5433:5432 -e POSTGRES_DB=product-db -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=123456 postgres:11
+
+
+Mongo DB
+
+docker run --name sales-db -d mongo:tag
+
+docker run --name sales-db -p 27017:27017 -p 28017:28017 -e MONGODB_USER="admin" -e MONGODB_PASS="123456" -e MONGODB_DATABASE="sales" tutum/mongodb
+
+"mongodb://admin:123456@localhost:27017/sales"
+
+
+
+
+
+
+Docker
+-------------------------------------------------------------------------
+
+Buildar um dockerfile : 
+docker image build -t sales-api .
+
+Rodar os containers
+docker run --name sales-api -e PORT=8082 -P8082:8082 sales-api
+
+
+Buildar docker compose
+docker-compose up --build
+
+
+
+
+Dependencias
+yarn add bcrypt
+
+
+Rodar front
+yarn startDev
+
+
+
+
+
+
+Mongo commands
+--------------------------------------------------------------------
+sudo service mongod stop
+sudo apt-get purge mongodb-org*
+sudo rm -r /var/log/mongodb
+sudo rm -r /var/lib/mongodb
+
+Matar porta
+-------------------------------------------------------------------
+kill $(lsof -t -i:8080)
+
+
+

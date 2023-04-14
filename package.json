@@ -1,0 +1,21 @@
+{
+  "name": "comunicacao-microservicos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/leosjcti/comunicacao-microservicos.git",
+  "author": "leonardo <leomelo@uolinc.com>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "startDev": "nodemon app.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
