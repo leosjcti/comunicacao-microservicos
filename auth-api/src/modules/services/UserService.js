@@ -16,7 +16,7 @@ class UserService {
 
             let user = await UserRepository.findByEmail(email);
             this.validateUserNotFound(user);
-            this.validateAuthenticatedUser(user, authUser)
+            this.validateAuthenticatedUser(user, authUser);
             return {
                 status: httpStatus.SUCCESS,
                 user: {
@@ -46,13 +46,13 @@ class UserService {
     }
 
     validateAuthenticatedUser(user, authUser) {
-        if(!authUser || user.id != authUser.id) {
-            throw new UserExecption(
-                httpStatus.FORBIDDEN,
-                "You cannot see this user data."
-            )
+        if (!authUser || user.id !== authUser.id) {
+          throw new UserException(
+            httpStatus.FORBIDDEN,
+            "You cannot see this user data."
+          );
         }
-    }
+      }
 
     async getAccessToken(req) {
         try {
